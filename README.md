@@ -23,11 +23,10 @@ or with npm:
 
 ## Examples
 
-#### useFetch
+- useFetch
+- useLoadingWithDelay
 
-#### useLoadingWithDelay
-
-```JSX
+```js
 function User() {
   const { data, error, loading } = useFetch(
     "https://api.github.com/users/lukibw"
@@ -53,11 +52,10 @@ function User() {
 }
 ```
 
-#### useLocalStorage
+- useLocalStorage
+- usePreviousState
 
-#### usePreviousState
-
-```JSX
+```js
 function LocalStorage() {
   const [value, setValue] = useLocalStorage("number");
   const previousStateValue = usePreviousState(value);
@@ -75,15 +73,12 @@ function LocalStorage() {
 }
 ```
 
-#### useMousePosition
+- useMousePosition
+- useScrollPosition
+- useWindowDimensions
+- useOnline
 
-#### useScrollPosition
-
-#### useWindowDimensions
-
-#### useOnline
-
-```JSX
+```js
 function Info() {
   const mousePosition = useMousePosition();
   const scrollPosition = useScrollPosition();
