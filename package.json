@@ -1,0 +1,29 @@
+{
+  "name": "custom-react-hooks",
+  "version": "1.0.0",
+  "description": "Amazing custom hooks for React library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "custom-react-hooks",
+    "react-hooks",
+    "custom-hooks",
+    "hooks"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Łukasz Włodarczyk",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.x"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.7"
+  },
+  "repository": "https://github.com/lukibw/custom-react-hooks"
+}
