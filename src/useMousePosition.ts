@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 
-interface MousePosition {
-  x: number;
-  y: number;
-}
-
-export default function useMousePosition(): MousePosition | null {
-  const [mousePosition, setMousePosition] = useState<MousePosition | null>(
-    null
-  );
+/**
+ * Returns the current mouse position, relative to the browser window.
+ */
+export default function useMousePosition(): { x: number; y: number } | null {
+  const [mousePosition, setMousePosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   useEffect(() => {
     const handleMouseEvent = (e: MouseEvent) =>

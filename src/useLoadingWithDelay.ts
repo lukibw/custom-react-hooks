@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import usePreviousState from "./usePreviousState";
 
+/**
+ * Returns the loading status with delay. You can use it to support users with slow intrnet connection by displaing e.g. a spinner.
+ */
 export default function useLoadingWithDelay(
   loadingStarted: boolean,
   time: number

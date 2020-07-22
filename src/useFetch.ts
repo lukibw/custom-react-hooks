@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 
-interface FetchAPI<T> {
-  data: T | undefined;
-  loading: boolean;
-  error: Error | undefined;
-}
-
+/**
+ * Returns an object with the data, loading status and any error, if occurs.
+ */
 export default function useFetch<T = any>(
   url: RequestInfo,
   options?: RequestInit
-): FetchAPI<T> {
-  const [data, setData] = useState<T | undefined>();
-  const [error, setError] = useState<Error | undefined>();
+): {
+  data?: T;
+  loading: boolean;
+  error?: Error;
+} {
+  const [data, setData] = useState<T>();
+  const [error, setError] = useState<Error>();
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {

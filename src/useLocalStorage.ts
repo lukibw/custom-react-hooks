@@ -6,6 +6,9 @@ function getItemFromStorage<T>(key: string): T | undefined {
   return JSON.parse(item);
 }
 
+/**
+ * Returns the current storage value under the given key and a function to update it.
+ */
 export default function useLocalStorage<T>(
   key: string
 ): [T | undefined, (value: T) => void] {

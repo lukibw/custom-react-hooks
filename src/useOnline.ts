@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+/**
+ * Returns the current network status
+ */
 export default function useOnline(): boolean {
   const [status, setStatus] = useState<boolean>(navigator.onLine);
 
