@@ -1,9 +1,9 @@
 import { useEffect, useRef, useCallback } from "react";
 
 /**
- * Executes the function after the time provided in arguments. Returns the clear function.
+ * Repeats the function aby the time provided in arguments. Returns the clear function.
  */
-export default function useTimeout(
+export default function useInterval(
   handler: TimerHandler,
   miliseconds: number
 ): () => void {
@@ -11,12 +11,12 @@ export default function useTimeout(
 
   const clear = useCallback(() => {
     if (timer.current) {
-      clearTimeout(timer.current);
+      clearInterval(timer.current);
     }
   }, []);
 
   useEffect(() => {
-    timer.current = setTimeout(handler, miliseconds);
+    timer.current = setInterval(handler, miliseconds);
     return clear;
   }, [handler, miliseconds]);
 

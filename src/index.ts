@@ -8,3 +8,4 @@ export { default as useScrollPosition } from "./useScrollPosition";
 export { default as useWindowDimensions } from "./useWindowDimensions";
 export { default as useEventListener } from "./useEventListener";
 export { default as useTimeout } from "./useTimeout";
+export { default as useInterval } from "./useInterval";
