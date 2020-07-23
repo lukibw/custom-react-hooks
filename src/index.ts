@@ -6,3 +6,4 @@ export { default as useOnline } from "./useOnline";
 export { default as usePreviousState } from "./usePreviousState";
 export { default as useScrollPosition } from "./useScrollPosition";
 export { default as useWindowDimensions } from "./useWindowDimensions";
+export { default as useEventListener } from "./useEventListener";
