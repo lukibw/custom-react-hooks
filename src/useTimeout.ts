@@ -1,24 +1,27 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 
 /**
- * Executes the function after the time provided in arguments. Returns the clear function.
+ * Executes the function after the time provided in arguments. Returns the clear function and isCleared flag.
  */
 export default function useTimeout(
   handler: TimerHandler,
   miliseconds: number
-): () => void {
+): [boolean, () => void] {
   const timer = useRef<number | undefined>();
+  const [isCleared, setIsCleared] = useState<boolean>(false);
 
   const clear = useCallback(() => {
     if (timer.current) {
+      setIsCleared(true);
       clearTimeout(timer.current);
     }
   }, []);
 
   useEffect(() => {
+    setIsCleared(false);
     timer.current = setTimeout(handler, miliseconds);
     return clear;
   }, [handler, miliseconds]);
 
-  return clear;
+  return [isCleared, clear];
 }
