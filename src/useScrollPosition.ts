@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
+import useWindowEventListener from "./useWindowEventListener";
 
 /**
  * Returns the current scroll position.
@@ -6,13 +7,9 @@ import { useState, useEffect } from "react";
 export default function useScrollPosition(): number {
   const [scrollPosition, setScrollPosition] = useState<number>(window.scrollY);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollPosition(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const listener = useCallback(() => setScrollPosition(window.scrollY), []);
+
+  useWindowEventListener("scroll", listener);
 
   return scrollPosition;
 }

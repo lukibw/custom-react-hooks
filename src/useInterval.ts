@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 
 /**
- * Repeats the function aby the time provided in arguments. Returns the clear function and isCleared flag.
+ * Repeats a function aby the time provided in arguments. Returns the clear function and isCleared flag.
  */
 export default function useInterval(
   handler: TimerHandler,
@@ -21,7 +21,7 @@ export default function useInterval(
     setIsCleared(false);
     timer.current = setInterval(handler, miliseconds);
     return clear;
-  }, [handler, miliseconds]);
+  }, [handler, miliseconds, clear]);
 
   return [isCleared, clear];
 }
