@@ -5,7 +5,7 @@ import { useEffect, useRef, useCallback, useState } from "react";
  */
 export default function useTimeout(
   handler: TimerHandler,
-  time: number
+  miliseconds: number
 ): [boolean, () => void] {
   const timer = useRef<number | undefined>();
   const fn = useRef<TimerHandler>(handler);
@@ -24,9 +24,9 @@ export default function useTimeout(
 
   useEffect(() => {
     setIsCleared(false);
-    timer.current = setTimeout(fn.current, time);
+    timer.current = setTimeout(fn.current, miliseconds);
     return clear;
-  }, [time, clear]);
+  }, [miliseconds, clear]);
 
   return [isCleared, clear];
 }
