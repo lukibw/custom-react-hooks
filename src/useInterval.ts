@@ -5,7 +5,7 @@ import { useEffect, useRef, useCallback, useState } from "react";
  */
 export default function useInterval(
   handler: TimerHandler,
-  miliseconds: number
+  time: number
 ): [boolean, () => void] {
   const timer = useRef<number | undefined>();
   const fn = useRef<TimerHandler>(handler);
@@ -24,9 +24,9 @@ export default function useInterval(
 
   useEffect(() => {
     setIsCleared(false);
-    timer.current = setInterval(fn.current, miliseconds);
+    timer.current = setInterval(fn.current, time);
     return clear;
-  }, [miliseconds, clear]);
+  }, [time, clear]);
 
   return [isCleared, clear];
 }
