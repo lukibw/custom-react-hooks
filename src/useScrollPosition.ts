@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import useWindowEventListener from "./useWindowEventListener";
 
 /**
@@ -7,7 +7,7 @@ import useWindowEventListener from "./useWindowEventListener";
 export default function useScrollPosition(): number {
   const [scrollPosition, setScrollPosition] = useState<number>(window.scrollY);
 
-  const listener = useCallback(() => setScrollPosition(window.scrollY), []);
+  const listener = () => setScrollPosition(window.scrollY);
 
   useWindowEventListener("scroll", listener);
 

@@ -8,6 +8,7 @@ export default function useInterval(
   miliseconds: number
 ): [boolean, () => void] {
   const timer = useRef<number | undefined>();
+  const fn = useRef<TimerHandler>(handler);
   const [isCleared, setIsCleared] = useState(false);
 
   const clear = useCallback(() => {
@@ -18,10 +19,14 @@ export default function useInterval(
   }, []);
 
   useEffect(() => {
+    fn.current = handler;
+  }, [handler]);
+
+  useEffect(() => {
     setIsCleared(false);
-    timer.current = setInterval(handler, miliseconds);
+    timer.current = setInterval(fn.current, miliseconds);
     return clear;
-  }, [handler, miliseconds, clear]);
+  }, [miliseconds, clear]);
 
   return [isCleared, clear];
 }

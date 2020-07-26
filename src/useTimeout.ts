@@ -8,6 +8,7 @@ export default function useTimeout(
   miliseconds: number
 ): [boolean, () => void] {
   const timer = useRef<number | undefined>();
+  const fn = useRef<TimerHandler>(handler);
   const [isCleared, setIsCleared] = useState<boolean>(false);
 
   const clear = useCallback(() => {
@@ -18,10 +19,14 @@ export default function useTimeout(
   }, []);
 
   useEffect(() => {
+    fn.current = handler;
+  }, [handler]);
+
+  useEffect(() => {
     setIsCleared(false);
-    timer.current = setTimeout(handler, miliseconds);
+    timer.current = setTimeout(fn.current, miliseconds);
     return clear;
-  }, [handler, miliseconds, clear]);
+  }, [miliseconds, clear]);
 
   return [isCleared, clear];
 }

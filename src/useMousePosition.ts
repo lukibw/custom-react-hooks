@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import useWindowEventListener from "./useWindowEventListener";
 
 /**
@@ -10,9 +10,9 @@ export default function useMousePosition(): { x: number; y: number } | null {
     y: number;
   } | null>(null);
 
-  const listener = useCallback((e: MouseEvent) => {
+  const listener = (e: MouseEvent) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
-  }, []);
+  };
 
   useWindowEventListener("mousemove", listener);
 

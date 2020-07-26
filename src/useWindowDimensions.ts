@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import useWindowEventListener from "./useWindowEventListener";
 
 function currentWindowDimensions(): { width: number; height: number } {
@@ -21,10 +21,7 @@ export default function useWindowDimensions(): {
     height: number;
   }>(currentWindowDimensions());
 
-  const listener = useCallback(
-    () => setWindowDimenstions(currentWindowDimensions()),
-    []
-  );
+  const listener = () => setWindowDimenstions(currentWindowDimensions());
 
   useWindowEventListener("resize", listener);
 
