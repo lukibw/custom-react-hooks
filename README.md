@@ -10,6 +10,10 @@ Simple, but very useful react custom hooks:
 - useScrollPosition
 - useMousePosition
 - useWindowDimensions
+- useTimeout
+- useInterval
+- useEventListener
+- useDebounce
 
 ## Install
 
