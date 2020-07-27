@@ -1,5 +1,4 @@
 export { default as useFetch } from "./useFetch";
-export { default as useLoadingWithDelay } from "./useLoadingWithDelay";
 export { default as useLocalStorage } from "./useLocalStorage";
 export { default as useMousePosition } from "./useMousePosition";
 export { default as useOnline } from "./useOnline";
@@ -10,3 +9,5 @@ export { default as useWindowEventListener } from "./useWindowEventListener";
 export { default as useTimeout } from "./useTimeout";
 export { default as useInterval } from "./useInterval";
 export { default as useDebounce } from "./useDebounce";
+export { default as useThrottle } from "./useThrottle";
+export { default as useClickOutside } from "./useClickOutside";
