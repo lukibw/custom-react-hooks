@@ -14,7 +14,7 @@ export default function useTimeout(
   const clear = useCallback(() => {
     if (timer.current) {
       setIsCleared(true);
-      clearTimeout(timer.current);
+      window.clearTimeout(timer.current);
     }
   }, []);
 
@@ -24,7 +24,7 @@ export default function useTimeout(
 
   useEffect(() => {
     setIsCleared(false);
-    timer.current = setTimeout(fn.current, time);
+    timer.current = window.setTimeout(fn.current, time);
     return clear;
   }, [time, clear]);
 

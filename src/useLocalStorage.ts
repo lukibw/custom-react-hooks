@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function getItemFromStorage<T>(key: string): T | undefined {
+function getItemFromStorage<T = any>(key: string): T | undefined {
   const item = window.localStorage.getItem(key);
   if (!item) return undefined;
   return JSON.parse(item);

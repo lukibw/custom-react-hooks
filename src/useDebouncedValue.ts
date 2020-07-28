@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
 /**
- * Returns debounced value that changes after given time based on the original value.
- * Useful in fast changing state like search input value, etc.
+ * Returns debounced value that delays changing
+ * to original value until after wait milliseconds have elapsed since the last time the debounced value was changed.
  */
-export default function useDebounce<T = any>(value: T, time: number): T {
+export default function useDebouncedValue<T = any>(value: T, time: number): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {

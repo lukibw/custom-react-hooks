@@ -14,7 +14,7 @@ export default function useInterval(
   const clear = useCallback(() => {
     if (timer.current) {
       setIsCleared(true);
-      clearInterval(timer.current);
+      window.clearInterval(timer.current);
     }
   }, []);
 
@@ -24,7 +24,7 @@ export default function useInterval(
 
   useEffect(() => {
     setIsCleared(false);
-    timer.current = setInterval(fn.current, time);
+    timer.current = window.setInterval(fn.current, time);
     return clear;
   }, [time, clear]);
 

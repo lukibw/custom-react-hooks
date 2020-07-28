@@ -17,5 +17,5 @@ export default function useClickOutside(element: HTMLElement, fn: () => any) {
     return () => {
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [element]);
 }
