@@ -3,10 +3,7 @@ import { useCallback, useEffect, useRef } from "react";
 /**
  * Returns a function that only invokes at most once per every wait time;
  */
-export default function useThrottledFunction<T = any>(
-  fn: () => T,
-  wait: number
-) {
+export default function useThrottledFunction(fn: Function, wait: number) {
   const functionRef = useRef(fn);
   const timerRef = useRef<number>();
 

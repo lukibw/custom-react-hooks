@@ -4,8 +4,8 @@ import { useRef, useEffect, useCallback } from "react";
  * Returns a function that delays invoking func until after wait milliseconds
  * have elapsed since the last time the debounced function was invoked.
  */
-export default function useDebouncedFunction<T = any>(
-  fn: () => T,
+export default function useDebouncedFunction(
+  fn: Function,
   wait: number
 ): () => void {
   const functionRef = useRef(fn);
